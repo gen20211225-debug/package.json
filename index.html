@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARCHIVE WATCH</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="logo">ARCHIVE WATCH</div>
+      <div class="sub">MULTI-PLATFORM ARCHIVE MONITOR</div>
+    </div>
+    <div class="status"><span class="dot"></span> MONITOR READY</div>
+  </header>
 
+  <main>
+    <section class="controls">
+      <!-- ショップ・プラットフォーム切り替えタブ -->
+      <div class="control-block">
+        <div class="label">SHOP / PLATFORM</div>
+        <div id="shopTabs" class="tabs"></div>
+      </div>
+
+      <!-- ブランド切り替えタブ -->
+      <div class="control-block">
+        <div class="label">BRAND</div>
+        <div id="brandTabs" class="tabs"></div>
+      </div>
+
+      <!-- カテゴリ切り替えタブ -->
+      <div class="control-block">
+        <div class="label">CATEGORY</div>
+        <div id="categoryTabs" class="tabs"></div>
+      </div>
+
+      <div class="toolbar">
+        <label class="sold-toggle">
+          <input id="showSold" type="checkbox" />
+          <span>SOLDを表示</span>
+        </label>
+
+        <select id="sort">
+          <option value="new">新着順</option>
+          <option value="low">安い順</option>
+          <option value="high">高い順</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="summary">
+      <div id="resultCount">0 ITEMS</div>
+      <div class="hint">カードをクリックすると元の販売ページへ移動</div>
+    </section>
+
+    <section id="grid" class="grid"></section>
+  </main>
+
+  <script src="./src/app.js"></script>
+</body>
+</html>
