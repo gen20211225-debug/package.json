@@ -1,1 +1,252 @@
+:root {
+  --bg: #0b0b0d;
+  --panel: #111115;
+  --panel2: #17171c;
+  --line: #2a2a31;
+  --text: #f2f2f2;
+  --muted: #85858d;
+}
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg) !important;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(11, 11, 13, .94);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.sub {
+  font-size: 9px;
+  letter-spacing: .2em;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.status {
+  font-size: 10px;
+  color: #aaa;
+  letter-spacing: .1em;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7cff9b;
+  margin-right: 7px;
+}
+
+main {
+  max-width: 1500px;
+  margin: auto;
+  padding: 28px;
+}
+
+.controls {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 20px;
+}
+
+.control-block + .control-block {
+  margin-top: 18px;
+}
+
+.label {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .18em;
+  margin-bottom: 10px;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tabs button,
+.tab {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: #aaa;
+  padding: 8px 11px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: .15s;
+}
+
+.tabs button:hover,
+.tab:hover {
+  color: #fff;
+  border-color: #666;
+}
+
+.tabs button.active,
+.tab.active {
+  background: #eee;
+  color: #090909;
+  border-color: #eee;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.sold-toggle {
+  font-size: 11px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.sold-toggle input {
+  accent-color: #fff;
+  margin-right: 8px;
+}
+
+select {
+  background: #111;
+  color: #eee;
+  border: 1px solid var(--line);
+  padding: 9px 12px;
+  font-size: 11px;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 2px 14px;
+}
+
+#resultCount {
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+
+.hint {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.product-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: .18s;
+  position: relative;
+  min-width: 0;
+}
+
+.product-card:hover {
+  border-color: #777;
+  transform: translateY(-2px);
+}
+
+.product-image {
+  aspect-ratio: 4/5;
+  background: #17171b;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-info {
+  padding: 11px;
+}
+
+.product-shop {
+  font-size: 9px;
+  color: #e63946;
+  font-weight: bold;
+  letter-spacing: .1em;
+  margin-bottom: 4px;
+}
+
+.product-brand {
+  font-size: 9px;
+  color: #999;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.product-name {
+  font-size: 11px;
+  margin-top: 6px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-price {
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+.available, .sold {
+  font-size: 9px;
+  margin-top: 7px;
+  letter-spacing: .12em;
+}
+
+.available { color: #777; }
+.sold { color: #e63946; }
+
+@media(max-width: 1100px) {
+  .grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media(max-width: 760px) {
+  main { padding: 15px; }
+  .topbar { padding: 17px 15px; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .toolbar { gap: 15px; align-items: flex-start; flex-direction: column; }
+  .hint { display: none; }
+}
